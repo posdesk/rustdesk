@@ -96,8 +96,9 @@ class _DesktopTabPageState extends State<DesktopTabPage> {
             backgroundColor: Theme.of(context).colorScheme.background,
             body: DesktopTab(
               controller: tabController,
+              // 核心修改：强制设置offstage为true，完全隐藏设置菜单键
               tail: Offstage(
-                offstage: bind.isIncomingOnly() || bind.isDisableSettings(),
+                offstage: true, // 原逻辑：bind.isIncomingOnly() || bind.isDisableSettings()
                 child: ActionIcon(
                   message: 'Settings',
                   icon: IconFont.menu,
